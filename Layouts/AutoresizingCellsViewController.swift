@@ -62,9 +62,11 @@ final class AutoresizingViewController: UIViewController, UICollectionViewDataSo
         let item = items[indexPath.row]
         let cell: AutoresizingCell = collectionView.dequeue(for: indexPath)
         
+        let resource = ImageResource(downloadURL: item.imageURL, cacheKey: "Cell-\(indexPath.row)-\(indexPath.section)")
+        
         cell.titleLabel.text = item.title
         cell.descriptionLabel.text = item.description
-        cell.imageView.kf.setImage(with: item.imageURL)
+        cell.imageView.kf.setImage(with: resource)
         
         return cell
     }

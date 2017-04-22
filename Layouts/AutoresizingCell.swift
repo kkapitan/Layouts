@@ -75,8 +75,6 @@ final class AutoresizingCell: UICollectionViewCell {
         layout.with(format: "H:|-0-[imageView(200)]-0-|")
             .activate()
         
-        
-        
         backgroundColor = .white
     }
     

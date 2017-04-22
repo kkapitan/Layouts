@@ -118,15 +118,14 @@ final class CarouselCell: UICollectionViewCell {
         let layout = LayoutBuilder(views: views)
         views.map { $0.1 }.forEach(contentView.addSubview)
         
-        layout.with(format: "V:|-0-[imageView]-10-[titleLabel]-10-[descriptionLabel]-10-|",
+        layout.with(format: "V:|-0-[imageView(200)]-10-[titleLabel]-10-[descriptionLabel]-10-|",
             options: [.alignAllLeading, .alignAllTrailing])
             .activate()
         
-        layout.with(format: "H:|-0-[imageView]-0-|")
+        layout.with(format: "H:|-0-[imageView(200)]-0-|")
             .activate()
         
         backgroundColor = .white
-        //contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder aDecoder: NSCoder) {
