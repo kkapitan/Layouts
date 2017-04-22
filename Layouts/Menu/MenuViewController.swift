@@ -12,10 +12,8 @@ final class MenuViewController: UITableViewController {
     
     fileprivate let entries: [MenuEntry] = {
        return [
-        MenuEntry(title: "Simple", controllerClass: UICollectionViewController.self),
-        MenuEntry(title: "Carousel", controllerClass: UICollectionViewController.self),
-        MenuEntry(title: "Sticky headers", controllerClass: UICollectionViewController.self),
-        MenuEntry(title: "Mosaic", controllerClass: UICollectionViewController.self)
+            MenuEntry(title: "Simple Flow Layout Autoresizing",
+                      controllerClass: AutoresizingViewController.self)
         ]
     }()
     
@@ -40,7 +38,7 @@ final class MenuViewController: UITableViewController {
         let entry = menuEntry(at: indexPath)
         let controllerClass = entry.controllerClass
         
-        let collectionViewController = controllerClass.init(collectionViewLayout: UICollectionViewFlowLayout())
+        let collectionViewController = controllerClass.init()
         navigationController?.pushViewController(collectionViewController, animated: true)
     }
     
@@ -59,9 +57,5 @@ final class MenuViewCell: UITableViewCell {
 
 struct MenuEntry {
     let title: String
-    let controllerClass: UICollectionViewController.Type
-}
-
-struct Entries {
-    
+    let controllerClass: UIViewController.Type
 }

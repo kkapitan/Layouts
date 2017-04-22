@@ -1,0 +1,6 @@
+framework module Pods_Layouts {
+  umbrella header "Pods-Layouts-umbrella.h"
+
+  export *
+  module * { export * }
+}
