@@ -13,7 +13,9 @@ final class MenuViewController: UITableViewController {
     fileprivate let entries: [MenuEntry] = {
        return [
             MenuEntry(title: "Simple Flow Layout Autoresizing",
-                      controllerClass: AutoresizingViewController.self)
+                      controllerClass: AutoresizingViewController.self),
+            MenuEntry(title: "Carousel + Autoresizing",
+                      controllerClass: CarouselViewController.self)
         ]
     }()
     
