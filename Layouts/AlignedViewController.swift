@@ -12,7 +12,7 @@ extension AlignedViewController: AlignedLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let random = Int(arc4random()) % 10
         
-        return CGSize(width: 100 + 10.0 * CGFloat(random), height: 50.0)
+        return CGSize(width: 100 + 10.0 * CGFloat(random), height: 50.0 + 5 * CGFloat(random))
     }
 }
 

@@ -72,6 +72,7 @@ final class AlignedLayout: UICollectionViewLayout {
             
             itemAttributes.append(sectionAttributes)
             origin.y += sectionSpacing
+            origin.x = insets.left
         }
         
         contentSize = CGSize(width: maxLayoutWidth, height: origin.y + insets.bottom)
