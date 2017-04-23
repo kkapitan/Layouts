@@ -1,5 +1,5 @@
 //
-//  CarouselCollectionView.swift
+//  FixedVerticalCarouselController.swift
 //  Layouts
 //
 //  Created by Krzysztof Kapitan on 22.04.2017.
@@ -9,26 +9,32 @@
 import UIKit
 import Kingfisher
 
-final class CarouselViewController: UIViewController, UICollectionViewDataSource {
+final class FixedVerticalCarouselController: UIViewController, UICollectionViewDataSource {
     
-    fileprivate let collectionViewLayout: CarouselCellFlowLayout = {
-        let layout = CarouselCellFlowLayout()
+    fileprivate let collectionViewLayout: FixedVerticalCarouselFlowLayout = {
+        let layout = FixedVerticalCarouselFlowLayout()
         
-        layout.estimatedItemSize = CGSize(width: 200.0 * layout.itemScale, height: 300.0 * layout.itemScale)
-        layout.minimumLineSpacing = 10.0
+        let screenSize = UIScreen.main.bounds.size
+        let ratio: CGFloat = 0.8
+        
+        layout.itemSize = CGSize(width: ratio * screenSize.width, height: ratio * screenSize.height)
+        
+        layout.scrollDirection = .horizontal
+        
+        layout.minimumInteritemSpacing = ratio
         
         return layout
     }()
     
     
-    fileprivate let items: [CarouselItem] = {
+    fileprivate let items: [FixedVerticalCarouselItem] = {
         return [
-            CarouselItem(title: "Title 1", description: LoremIpsum.random()),
-            CarouselItem(title: "Title 2", description: LoremIpsum.random()),
-            CarouselItem(title: "Title 3", description: LoremIpsum.random()),
-            CarouselItem(title: "Title 4", description: LoremIpsum.random()),
-            CarouselItem(title: "Title 5", description: LoremIpsum.random()),
-            CarouselItem(title: "Title 6", description: LoremIpsum.random()),
+            FixedVerticalCarouselItem(title: "Title 1", description: LoremIpsum.random()),
+            FixedVerticalCarouselItem(title: "Title 2", description: LoremIpsum.random()),
+            FixedVerticalCarouselItem(title: "Title 3", description: LoremIpsum.random()),
+            FixedVerticalCarouselItem(title: "Title 4", description: LoremIpsum.random()),
+            FixedVerticalCarouselItem(title: "Title 5", description: LoremIpsum.random()),
+            FixedVerticalCarouselItem(title: "Title 6", description: LoremIpsum.random()),
             ]
     }()
     
@@ -42,11 +48,11 @@ final class CarouselViewController: UIViewController, UICollectionViewDataSource
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionView.registerClass(CarouselCell.self)
+        collectionView.registerClass(FixedVerticalCarouselCell.self)
         collectionView.dataSource = self
         
         collectionView.backgroundColor = .alzarin
-    
+        
         view.addSubview(collectionView)
         LayoutBuilder().pin(collectionView, to: view)
     }
@@ -58,7 +64,7 @@ final class CarouselViewController: UIViewController, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let item = items[indexPath.row]
-        let cell: CarouselCell = collectionView.dequeue(for: indexPath)
+        let cell: FixedVerticalCarouselCell = collectionView.dequeue(for: indexPath)
         
         let resource = ImageResource(downloadURL: item.imageURL, cacheKey: "Cell-\(indexPath.row)-\(indexPath.section)")
         
@@ -69,6 +75,4 @@ final class CarouselViewController: UIViewController, UICollectionViewDataSource
         return cell
     }
 }
-
-
 

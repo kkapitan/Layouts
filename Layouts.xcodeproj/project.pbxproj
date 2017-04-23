@@ -24,6 +24,14 @@
 		024DFF881EABD811007A16B3 /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF871EABD811007A16B3 /* CarouselItem.swift */; };
 		024DFF8A1EABD817007A16B3 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF891EABD817007A16B3 /* CarouselCell.swift */; };
 		024DFF8C1EABD8A6007A16B3 /* CarouselCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF8B1EABD8A6007A16B3 /* CarouselCellFlowLayout.swift */; };
+		024DFF911EABF849007A16B3 /* FixedVerticalCarouselController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF901EABF849007A16B3 /* FixedVerticalCarouselController.swift */; };
+		024DFF931EABF89F007A16B3 /* FixedVerticalCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF921EABF89F007A16B3 /* FixedVerticalCarouselCell.swift */; };
+		024DFF951EABF8AF007A16B3 /* FixedVerticalCarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF941EABF8AF007A16B3 /* FixedVerticalCarouselItem.swift */; };
+		024DFF971EABF8BD007A16B3 /* FixedVerticalCarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF961EABF8BD007A16B3 /* FixedVerticalCarouselLayout.swift */; };
+		024DFF991EACBE85007A16B3 /* AlignedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF981EACBE85007A16B3 /* AlignedItem.swift */; };
+		024DFF9B1EACBE91007A16B3 /* AlignedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF9A1EACBE91007A16B3 /* AlignedCell.swift */; };
+		024DFF9D1EACBE97007A16B3 /* AlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF9C1EACBE97007A16B3 /* AlignedLayout.swift */; };
+		024DFF9F1EACBEA3007A16B3 /* AlignedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF9E1EACBEA3007A16B3 /* AlignedViewController.swift */; };
 		340550279246F9D9439B73F2 /* Pods_Layouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +55,14 @@
 		024DFF871EABD811007A16B3 /* CarouselItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
 		024DFF891EABD817007A16B3 /* CarouselCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		024DFF8B1EABD8A6007A16B3 /* CarouselCellFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCellFlowLayout.swift; sourceTree = "<group>"; };
+		024DFF901EABF849007A16B3 /* FixedVerticalCarouselController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedVerticalCarouselController.swift; sourceTree = "<group>"; };
+		024DFF921EABF89F007A16B3 /* FixedVerticalCarouselCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedVerticalCarouselCell.swift; sourceTree = "<group>"; };
+		024DFF941EABF8AF007A16B3 /* FixedVerticalCarouselItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedVerticalCarouselItem.swift; sourceTree = "<group>"; };
+		024DFF961EABF8BD007A16B3 /* FixedVerticalCarouselLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixedVerticalCarouselLayout.swift; sourceTree = "<group>"; };
+		024DFF981EACBE85007A16B3 /* AlignedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedItem.swift; sourceTree = "<group>"; };
+		024DFF9A1EACBE91007A16B3 /* AlignedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedCell.swift; sourceTree = "<group>"; };
+		024DFF9C1EACBE97007A16B3 /* AlignedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedLayout.swift; sourceTree = "<group>"; };
+		024DFF9E1EACBEA3007A16B3 /* AlignedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedViewController.swift; sourceTree = "<group>"; };
 		063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Layouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4DDBA550E56C16ECC94761 /* Pods-Layouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.debug.xcconfig"; sourceTree = "<group>"; };
 		369C4ADE8EC655D25CC949C8 /* Pods-Layouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,9 +103,8 @@
 			children = (
 				024DFF551EAB8DC9007A16B3 /* AppDelegate.swift */,
 				024DFF691EAB90BB007A16B3 /* Menu */,
+				024DFF8E1EABF7EB007A16B3 /* Layouts */,
 				024DFF681EAB8EC4007A16B3 /* Helpers */,
-				024DFF7C1EABC255007A16B3 /* SimpleAutoresizing */,
-				024DFF671EAB8EAC007A16B3 /* Carousel */,
 				024DFF5C1EAB8DC9007A16B3 /* Assets.xcassets */,
 				024DFF5E1EAB8DC9007A16B3 /* LaunchScreen.storyboard */,
 				024DFF611EAB8DC9007A16B3 /* Info.plist */,
@@ -145,6 +160,40 @@
 				024DFF811EABC3BA007A16B3 /* AutoresizingCell.swift */,
 			);
 			name = SimpleAutoresizing;
+			sourceTree = "<group>";
+		};
+		024DFF8D1EABF7BC007A16B3 /* Vertical Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				024DFF901EABF849007A16B3 /* FixedVerticalCarouselController.swift */,
+				024DFF921EABF89F007A16B3 /* FixedVerticalCarouselCell.swift */,
+				024DFF941EABF8AF007A16B3 /* FixedVerticalCarouselItem.swift */,
+				024DFF961EABF8BD007A16B3 /* FixedVerticalCarouselLayout.swift */,
+			);
+			name = "Vertical Carousel";
+			path = Carousel;
+			sourceTree = "<group>";
+		};
+		024DFF8E1EABF7EB007A16B3 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				024DFF8F1EABF82E007A16B3 /* Aligned Layout */,
+				024DFF8D1EABF7BC007A16B3 /* Vertical Carousel */,
+				024DFF671EAB8EAC007A16B3 /* Carousel */,
+				024DFF7C1EABC255007A16B3 /* SimpleAutoresizing */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		024DFF8F1EABF82E007A16B3 /* Aligned Layout */ = {
+			isa = PBXGroup;
+			children = (
+				024DFF981EACBE85007A16B3 /* AlignedItem.swift */,
+				024DFF9A1EACBE91007A16B3 /* AlignedCell.swift */,
+				024DFF9C1EACBE97007A16B3 /* AlignedLayout.swift */,
+				024DFF9E1EACBEA3007A16B3 /* AlignedViewController.swift */,
+			);
+			name = "Aligned Layout";
 			sourceTree = "<group>";
 		};
 		05A8CF39510BDEAF89452F84 /* Pods */ = {
@@ -287,17 +336,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				024DFF711EAB930E007A16B3 /* Reusable.swift in Sources */,
+				024DFF9F1EACBEA3007A16B3 /* AlignedViewController.swift in Sources */,
 				024DFF841EABC95F007A16B3 /* Colors.swift in Sources */,
 				024DFF6B1EAB9108007A16B3 /* MenuViewController.swift in Sources */,
 				024DFF751EAB9BB8007A16B3 /* CarouselCollectionViewController.swift in Sources */,
 				024DFF861EABCE89007A16B3 /* LoremIpsum.swift in Sources */,
 				024DFF561EAB8DC9007A16B3 /* AppDelegate.swift in Sources */,
 				024DFF881EABD811007A16B3 /* CarouselItem.swift in Sources */,
+				024DFF991EACBE85007A16B3 /* AlignedItem.swift in Sources */,
 				024DFF6D1EAB9129007A16B3 /* LayoutBuilder.swift in Sources */,
+				024DFF931EABF89F007A16B3 /* FixedVerticalCarouselCell.swift in Sources */,
 				024DFF731EAB9386007A16B3 /* CellHelpers.swift in Sources */,
+				024DFF971EABF8BD007A16B3 /* FixedVerticalCarouselLayout.swift in Sources */,
 				024DFF7E1EABC38D007A16B3 /* AutoresizingCellsViewController.swift in Sources */,
 				024DFF6F1EAB920A007A16B3 /* Array+NSLayoutConstraint.swift in Sources */,
+				024DFF9B1EACBE91007A16B3 /* AlignedCell.swift in Sources */,
 				024DFF8A1EABD817007A16B3 /* CarouselCell.swift in Sources */,
+				024DFF9D1EACBE97007A16B3 /* AlignedLayout.swift in Sources */,
+				024DFF951EABF8AF007A16B3 /* FixedVerticalCarouselItem.swift in Sources */,
+				024DFF911EABF849007A16B3 /* FixedVerticalCarouselController.swift in Sources */,
 				024DFF8C1EABD8A6007A16B3 /* CarouselCellFlowLayout.swift in Sources */,
 				024DFF801EABC3A8007A16B3 /* AutoresizingItem.swift in Sources */,
 				024DFF821EABC3BA007A16B3 /* AutoresizingCell.swift in Sources */,

@@ -15,7 +15,11 @@ final class MenuViewController: UITableViewController {
             MenuEntry(title: "Simple Flow Layout Autoresizing",
                       controllerClass: AutoresizingViewController.self),
             MenuEntry(title: "Carousel + Autoresizing",
-                      controllerClass: CarouselViewController.self)
+                      controllerClass: CarouselViewController.self),
+            MenuEntry(title: "Fixed Vertical Carousel",
+                      controllerClass: FixedVerticalCarouselController.self),
+            MenuEntry(title: "Left Aligned Layout",
+                  controllerClass: AlignedViewController.self)
         ]
     }()
     
