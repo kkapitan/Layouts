@@ -32,6 +32,15 @@
 		024DFF9B1EACBE91007A16B3 /* AlignedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF9A1EACBE91007A16B3 /* AlignedCell.swift */; };
 		024DFF9D1EACBE97007A16B3 /* AlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF9C1EACBE97007A16B3 /* AlignedLayout.swift */; };
 		024DFF9F1EACBEA3007A16B3 /* AlignedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFF9E1EACBEA3007A16B3 /* AlignedViewController.swift */; };
+		024DFFA61EACD9B2007A16B3 /* StretchingHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFA51EACD9B2007A16B3 /* StretchingHeaderFlowLayout.swift */; };
+		024DFFA81EACD9E0007A16B3 /* StretchingHeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFA71EACD9E0007A16B3 /* StretchingHeaderItem.swift */; };
+		024DFFAA1EACD9ED007A16B3 /* StretchingHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFA91EACD9ED007A16B3 /* StretchingHeaderCell.swift */; };
+		024DFFAC1EACD9F7007A16B3 /* StretchingHeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFAB1EACD9F7007A16B3 /* StretchingHeaderController.swift */; };
+		024DFFAE1EACDD38007A16B3 /* StretchingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFAD1EACDD38007A16B3 /* StretchingHeaderView.swift */; };
+		024DFFB01EAD1241007A16B3 /* ExpandingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFAF1EAD1241007A16B3 /* ExpandingLayout.swift */; };
+		024DFFB21EAD1258007A16B3 /* ExpandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFB11EAD1258007A16B3 /* ExpandingViewController.swift */; };
+		024DFFB41EAD1261007A16B3 /* ExpandingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFB31EAD1261007A16B3 /* ExpandingItem.swift */; };
+		024DFFB61EAD1266007A16B3 /* ExpandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DFFB51EAD1266007A16B3 /* ExpandingCell.swift */; };
 		340550279246F9D9439B73F2 /* Pods_Layouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +72,15 @@
 		024DFF9A1EACBE91007A16B3 /* AlignedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedCell.swift; sourceTree = "<group>"; };
 		024DFF9C1EACBE97007A16B3 /* AlignedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedLayout.swift; sourceTree = "<group>"; };
 		024DFF9E1EACBEA3007A16B3 /* AlignedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedViewController.swift; sourceTree = "<group>"; };
+		024DFFA51EACD9B2007A16B3 /* StretchingHeaderFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchingHeaderFlowLayout.swift; sourceTree = "<group>"; };
+		024DFFA71EACD9E0007A16B3 /* StretchingHeaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchingHeaderItem.swift; sourceTree = "<group>"; };
+		024DFFA91EACD9ED007A16B3 /* StretchingHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchingHeaderCell.swift; sourceTree = "<group>"; };
+		024DFFAB1EACD9F7007A16B3 /* StretchingHeaderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchingHeaderController.swift; sourceTree = "<group>"; };
+		024DFFAD1EACDD38007A16B3 /* StretchingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchingHeaderView.swift; sourceTree = "<group>"; };
+		024DFFAF1EAD1241007A16B3 /* ExpandingLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingLayout.swift; sourceTree = "<group>"; };
+		024DFFB11EAD1258007A16B3 /* ExpandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingViewController.swift; sourceTree = "<group>"; };
+		024DFFB31EAD1261007A16B3 /* ExpandingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingItem.swift; sourceTree = "<group>"; };
+		024DFFB51EAD1266007A16B3 /* ExpandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingCell.swift; sourceTree = "<group>"; };
 		063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Layouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4DDBA550E56C16ECC94761 /* Pods-Layouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.debug.xcconfig"; sourceTree = "<group>"; };
 		369C4ADE8EC655D25CC949C8 /* Pods-Layouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +195,11 @@
 		024DFF8E1EABF7EB007A16B3 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				024DFFA41EACD8B3007A16B3 /* TinderLike */,
+				024DFFA31EACD8AA007A16B3 /* Autolayout Table */,
+				024DFFA21EACD8A4007A16B3 /* Expanding cells */,
+				024DFFA11EACD89C007A16B3 /* Sticky Header */,
+				024DFFA01EACD85F007A16B3 /* Stretching Header */,
 				024DFF8F1EABF82E007A16B3 /* Aligned Layout */,
 				024DFF8D1EABF7BC007A16B3 /* Vertical Carousel */,
 				024DFF671EAB8EAC007A16B3 /* Carousel */,
@@ -194,6 +217,50 @@
 				024DFF9E1EACBEA3007A16B3 /* AlignedViewController.swift */,
 			);
 			name = "Aligned Layout";
+			sourceTree = "<group>";
+		};
+		024DFFA01EACD85F007A16B3 /* Stretching Header */ = {
+			isa = PBXGroup;
+			children = (
+				024DFFA51EACD9B2007A16B3 /* StretchingHeaderFlowLayout.swift */,
+				024DFFA71EACD9E0007A16B3 /* StretchingHeaderItem.swift */,
+				024DFFA91EACD9ED007A16B3 /* StretchingHeaderCell.swift */,
+				024DFFAB1EACD9F7007A16B3 /* StretchingHeaderController.swift */,
+				024DFFAD1EACDD38007A16B3 /* StretchingHeaderView.swift */,
+			);
+			name = "Stretching Header";
+			sourceTree = "<group>";
+		};
+		024DFFA11EACD89C007A16B3 /* Sticky Header */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Sticky Header";
+			sourceTree = "<group>";
+		};
+		024DFFA21EACD8A4007A16B3 /* Expanding cells */ = {
+			isa = PBXGroup;
+			children = (
+				024DFFAF1EAD1241007A16B3 /* ExpandingLayout.swift */,
+				024DFFB11EAD1258007A16B3 /* ExpandingViewController.swift */,
+				024DFFB31EAD1261007A16B3 /* ExpandingItem.swift */,
+				024DFFB51EAD1266007A16B3 /* ExpandingCell.swift */,
+			);
+			name = "Expanding cells";
+			sourceTree = "<group>";
+		};
+		024DFFA31EACD8AA007A16B3 /* Autolayout Table */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Autolayout Table";
+			sourceTree = "<group>";
+		};
+		024DFFA41EACD8B3007A16B3 /* TinderLike */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TinderLike;
 			sourceTree = "<group>";
 		};
 		05A8CF39510BDEAF89452F84 /* Pods */ = {
@@ -335,6 +402,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024DFFAE1EACDD38007A16B3 /* StretchingHeaderView.swift in Sources */,
+				024DFFAC1EACD9F7007A16B3 /* StretchingHeaderController.swift in Sources */,
 				024DFF711EAB930E007A16B3 /* Reusable.swift in Sources */,
 				024DFF9F1EACBEA3007A16B3 /* AlignedViewController.swift in Sources */,
 				024DFF841EABC95F007A16B3 /* Colors.swift in Sources */,
@@ -342,9 +411,13 @@
 				024DFF751EAB9BB8007A16B3 /* CarouselCollectionViewController.swift in Sources */,
 				024DFF861EABCE89007A16B3 /* LoremIpsum.swift in Sources */,
 				024DFF561EAB8DC9007A16B3 /* AppDelegate.swift in Sources */,
+				024DFFB41EAD1261007A16B3 /* ExpandingItem.swift in Sources */,
 				024DFF881EABD811007A16B3 /* CarouselItem.swift in Sources */,
 				024DFF991EACBE85007A16B3 /* AlignedItem.swift in Sources */,
+				024DFFB61EAD1266007A16B3 /* ExpandingCell.swift in Sources */,
 				024DFF6D1EAB9129007A16B3 /* LayoutBuilder.swift in Sources */,
+				024DFFA61EACD9B2007A16B3 /* StretchingHeaderFlowLayout.swift in Sources */,
+				024DFFA81EACD9E0007A16B3 /* StretchingHeaderItem.swift in Sources */,
 				024DFF931EABF89F007A16B3 /* FixedVerticalCarouselCell.swift in Sources */,
 				024DFF731EAB9386007A16B3 /* CellHelpers.swift in Sources */,
 				024DFF971EABF8BD007A16B3 /* FixedVerticalCarouselLayout.swift in Sources */,
@@ -356,6 +429,9 @@
 				024DFF951EABF8AF007A16B3 /* FixedVerticalCarouselItem.swift in Sources */,
 				024DFF911EABF849007A16B3 /* FixedVerticalCarouselController.swift in Sources */,
 				024DFF8C1EABD8A6007A16B3 /* CarouselCellFlowLayout.swift in Sources */,
+				024DFFB21EAD1258007A16B3 /* ExpandingViewController.swift in Sources */,
+				024DFFAA1EACD9ED007A16B3 /* StretchingHeaderCell.swift in Sources */,
+				024DFFB01EAD1241007A16B3 /* ExpandingLayout.swift in Sources */,
 				024DFF801EABC3A8007A16B3 /* AutoresizingItem.swift in Sources */,
 				024DFF821EABC3BA007A16B3 /* AutoresizingCell.swift in Sources */,
 			);
