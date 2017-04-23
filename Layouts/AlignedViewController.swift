@@ -54,6 +54,10 @@ final class AlignedViewController: UIViewController, UICollectionViewDataSource 
         LayoutBuilder().pin(collectionView, to: view)
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
