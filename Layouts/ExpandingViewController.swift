@@ -8,10 +8,6 @@
 
 import UIKit
 
-final class ExpandingLayout: UICollectionViewLayout {
-    
-}
-
 final class ExpandingController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     fileprivate let collectionViewLayout: ExpandingLayout = {
@@ -23,6 +19,18 @@ final class ExpandingController: UIViewController, UICollectionViewDataSource, U
     
     fileprivate let items: [ExpandingItem] = {
         return [
+            ExpandingItem(title: "Title 1"),
+            ExpandingItem(title: "Title 2"),
+            ExpandingItem(title: "Title 3"),
+            ExpandingItem(title: "Title 4"),
+            ExpandingItem(title: "Title 5"),
+            ExpandingItem(title: "Title 6"),
+            ExpandingItem(title: "Title 1"),
+            ExpandingItem(title: "Title 2"),
+            ExpandingItem(title: "Title 3"),
+            ExpandingItem(title: "Title 4"),
+            ExpandingItem(title: "Title 5"),
+            ExpandingItem(title: "Title 6"),
             ExpandingItem(title: "Title 1"),
             ExpandingItem(title: "Title 2"),
             ExpandingItem(title: "Title 3"),
@@ -44,6 +52,7 @@ final class ExpandingController: UIViewController, UICollectionViewDataSource, U
         
         collectionView.registerClass(ExpandingCell.self)
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         collectionView.backgroundColor = .alzarin
         collectionView.alwaysBounceVertical = true
@@ -64,5 +73,15 @@ final class ExpandingController: UIViewController, UICollectionViewDataSource, U
         cell.titleLabel.text = item.title
 
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        collectionViewLayout.selectedIndexPath = collectionViewLayout.selectedIndexPath == indexPath ? nil : indexPath
+        
+        UIView.animate(withDuration: 0.5) {
+            self.collectionViewLayout.invalidateLayout()
+            self.collectionViewLayout.collectionView?.layoutIfNeeded()
+        }
     }
 }
