@@ -73,4 +73,26 @@ final class ExpandingLayout: UICollectionViewLayout {
         
         return collectionView.bounds.size != newBounds.size
     }
+    
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+        
+        guard let selectedIndexPath = selectedIndexPath else { return proposedContentOffset }
+        
+        guard let attribute = layoutAttributesForItem(at: selectedIndexPath) else { return proposedContentOffset }
+        
+        let boundsStart = proposedContentOffset.y
+        let boundsEnd = boundsStart + (collectionView?.bounds.height ?? 0.0)
+        
+        let frame = attribute.frame
+        
+        if boundsStart > frame.minY && boundsStart < frame.maxY {
+            return CGPoint(x: proposedContentOffset.x, y: frame.minY)
+        }
+        
+        if frame.minY < boundsEnd && boundsEnd < frame.maxY {
+            return CGPoint(x: proposedContentOffset.x, y: boundsStart + (frame.maxY - boundsEnd))
+        }
+    
+        return proposedContentOffset
+    }
 }
