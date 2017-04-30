@@ -19,9 +19,11 @@ final class MenuViewController: UITableViewController {
             MenuEntry(title: "Fixed Vertical Carousel",
                       controllerClass: FixedVerticalCarouselController.self),
             MenuEntry(title: "Left Aligned",
-                  controllerClass: AlignedViewController.self),
+                      controllerClass: AlignedViewController.self),
             MenuEntry(title: "Stretching Header",
-                      controllerClass: StretchingHeaderController.self)
+                      controllerClass: StretchingHeaderController.self),
+            MenuEntry(title: "Circle Layout",
+                      controllerClass: CircleViewController.self),
         ]
     }()
     
