@@ -26,7 +26,7 @@ final class ArcLayout: UICollectionViewLayout {
         let maxOffsetX = collectionViewContentSize.width - collectionView.bounds.width
         
         let numberOfItems = collectionView.numberOfItems(inSection: 0)
-        let maxAngle = CGFloat(numberOfItems - 1) * anglePerItem
+        let maxAngle = -1 * CGFloat(numberOfItems - 1) * anglePerItem
         
         return maxAngle * offsetX / maxOffsetX
     }
@@ -44,19 +44,24 @@ final class ArcLayout: UICollectionViewLayout {
         
         guard let collectionView = collectionView else { return }
         
-        let centerY = collectionView.bounds.height / 2
-        let centerX = collectionView.contentOffset.x + collectionView.bounds.width / 2
+        let centerY = collectionView.bounds.midY
+        let centerX = collectionView.contentOffset.x + collectionView.bounds.width / 2.0
         
+        let anchorY = ((itemSize.height/2.0) + radius)/itemSize.height
         let numberOfItems = collectionView.numberOfItems(inSection: 0)
+        
         
         attributes = (0..<numberOfItems).map { index in
             let indexPath = IndexPath(item: index, section: 0)
             let attributes = ArcAttributes(forCellWith: indexPath)
             
-            attributes.angle = CGFloat(index) * anglePerItem
+            
             attributes.size = itemSize
             attributes.center = CGPoint(x: centerX, y: centerY)
+            
             attributes.anchorPoint = CGPoint(x: 0.5, y: 0.5 + radius/itemSize.height)
+            attributes.angle = angleOffset + CGFloat(index) * anglePerItem
+            attributes.anchorPoint = CGPoint(x: 0.5, y: anchorY)
             
             print(collectionView.contentOffset.x)
             print(angleOffset)
