@@ -24,6 +24,8 @@ final class MenuViewController: UITableViewController {
                       controllerClass: StretchingHeaderController.self),
             MenuEntry(title: "Circle Layout",
                       controllerClass: CircleViewController.self),
+            MenuEntry(title: "Arc Layout",
+                      controllerClass: ArcViewController.self),
         ]
     }()
     

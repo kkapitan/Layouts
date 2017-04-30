@@ -45,6 +45,10 @@
 		026CA9FA1EB6050F004B1AB1 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CA9F91EB6050F004B1AB1 /* CircleCell.swift */; };
 		026CA9FC1EB6051B004B1AB1 /* CircleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CA9FB1EB6051B004B1AB1 /* CircleLayout.swift */; };
 		026CA9FE1EB60521004B1AB1 /* CircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CA9FD1EB60521004B1AB1 /* CircleViewController.swift */; };
+		026CAA021EB62A3F004B1AB1 /* ArcItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA011EB62A3F004B1AB1 /* ArcItem.swift */; };
+		026CAA041EB62A48004B1AB1 /* ArcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA031EB62A48004B1AB1 /* ArcCell.swift */; };
+		026CAA061EB62A59004B1AB1 /* ArcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA051EB62A59004B1AB1 /* ArcViewController.swift */; };
+		026CAA081EB62A6C004B1AB1 /* ArcLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA071EB62A6C004B1AB1 /* ArcLayout.swift */; };
 		340550279246F9D9439B73F2 /* Pods_Layouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +93,10 @@
 		026CA9F91EB6050F004B1AB1 /* CircleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
 		026CA9FB1EB6051B004B1AB1 /* CircleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLayout.swift; sourceTree = "<group>"; };
 		026CA9FD1EB60521004B1AB1 /* CircleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewController.swift; sourceTree = "<group>"; };
+		026CAA011EB62A3F004B1AB1 /* ArcItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcItem.swift; sourceTree = "<group>"; };
+		026CAA031EB62A48004B1AB1 /* ArcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcCell.swift; sourceTree = "<group>"; };
+		026CAA051EB62A59004B1AB1 /* ArcViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcViewController.swift; sourceTree = "<group>"; };
+		026CAA071EB62A6C004B1AB1 /* ArcLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcLayout.swift; sourceTree = "<group>"; };
 		063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Layouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4DDBA550E56C16ECC94761 /* Pods-Layouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.debug.xcconfig"; sourceTree = "<group>"; };
 		369C4ADE8EC655D25CC949C8 /* Pods-Layouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,11 +211,9 @@
 		024DFF8E1EABF7EB007A16B3 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				026CA9FF1EB629F9004B1AB1 /* NEW */,
+				026CAA001EB62A23004B1AB1 /* Arc Layout */,
 				026CA9F61EB604DD004B1AB1 /* Circle Layout */,
-				024DFFA41EACD8B3007A16B3 /* TinderLike */,
-				024DFFA31EACD8AA007A16B3 /* Autolayout Table */,
-				024DFFA21EACD8A4007A16B3 /* Expanding cells */,
-				024DFFA11EACD89C007A16B3 /* Sticky Header */,
 				024DFFA01EACD85F007A16B3 /* Stretching Header */,
 				024DFF8F1EABF82E007A16B3 /* Aligned Layout */,
 				024DFF8D1EABF7BC007A16B3 /* Vertical Carousel */,
@@ -281,6 +287,28 @@
 				026CA9FD1EB60521004B1AB1 /* CircleViewController.swift */,
 			);
 			name = "Circle Layout";
+			sourceTree = "<group>";
+		};
+		026CA9FF1EB629F9004B1AB1 /* NEW */ = {
+			isa = PBXGroup;
+			children = (
+				024DFFA21EACD8A4007A16B3 /* Expanding cells */,
+				024DFFA11EACD89C007A16B3 /* Sticky Header */,
+				024DFFA31EACD8AA007A16B3 /* Autolayout Table */,
+				024DFFA41EACD8B3007A16B3 /* TinderLike */,
+			);
+			name = NEW;
+			sourceTree = "<group>";
+		};
+		026CAA001EB62A23004B1AB1 /* Arc Layout */ = {
+			isa = PBXGroup;
+			children = (
+				026CAA011EB62A3F004B1AB1 /* ArcItem.swift */,
+				026CAA031EB62A48004B1AB1 /* ArcCell.swift */,
+				026CAA051EB62A59004B1AB1 /* ArcViewController.swift */,
+				026CAA071EB62A6C004B1AB1 /* ArcLayout.swift */,
+			);
+			name = "Arc Layout";
 			sourceTree = "<group>";
 		};
 		05A8CF39510BDEAF89452F84 /* Pods */ = {
@@ -422,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				026CAA041EB62A48004B1AB1 /* ArcCell.swift in Sources */,
 				024DFFAE1EACDD38007A16B3 /* StretchingHeaderView.swift in Sources */,
 				024DFFAC1EACD9F7007A16B3 /* StretchingHeaderController.swift in Sources */,
 				026CA9FE1EB60521004B1AB1 /* CircleViewController.swift in Sources */,
@@ -449,7 +478,9 @@
 				024DFF9B1EACBE91007A16B3 /* AlignedCell.swift in Sources */,
 				024DFF8A1EABD817007A16B3 /* CarouselCell.swift in Sources */,
 				024DFF9D1EACBE97007A16B3 /* AlignedLayout.swift in Sources */,
+				026CAA061EB62A59004B1AB1 /* ArcViewController.swift in Sources */,
 				024DFF951EABF8AF007A16B3 /* FixedVerticalCarouselItem.swift in Sources */,
+				026CAA021EB62A3F004B1AB1 /* ArcItem.swift in Sources */,
 				024DFF911EABF849007A16B3 /* FixedVerticalCarouselController.swift in Sources */,
 				024DFF8C1EABD8A6007A16B3 /* CarouselCellFlowLayout.swift in Sources */,
 				024DFFB21EAD1258007A16B3 /* ExpandingViewController.swift in Sources */,
@@ -457,6 +488,7 @@
 				024DFFB01EAD1241007A16B3 /* ExpandingLayout.swift in Sources */,
 				026CA9FC1EB6051B004B1AB1 /* CircleLayout.swift in Sources */,
 				024DFF801EABC3A8007A16B3 /* AutoresizingItem.swift in Sources */,
+				026CAA081EB62A6C004B1AB1 /* ArcLayout.swift in Sources */,
 				024DFF821EABC3BA007A16B3 /* AutoresizingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
