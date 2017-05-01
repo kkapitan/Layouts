@@ -68,6 +68,7 @@ final class StickyViewController: UIViewController, UICollectionViewDataSource, 
         collectionView.registerClass(StickyHeader.self, forViewOfKind: StickyHeader.kind)
         
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         collectionView.backgroundColor = .alzarin
         collectionView.alwaysBounceVertical = true
@@ -100,5 +101,15 @@ final class StickyViewController: UIViewController, UICollectionViewDataSource, 
         header.title = "Section \(indexPath.section + 1)"
         
         return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        collectionViewLayout.selectedCellIndexPath = collectionViewLayout.selectedCellIndexPath == indexPath ? nil : indexPath
+        
+        UIView.animate(withDuration: 0.5) {
+            self.collectionViewLayout.invalidateLayout()
+            self.collectionViewLayout.collectionView?.layoutIfNeeded()
+        }
     }
 }
