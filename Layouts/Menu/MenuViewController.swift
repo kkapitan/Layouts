@@ -30,6 +30,8 @@ final class MenuViewController: UITableViewController {
                       controllerClass: ExpandingController.self),
             MenuEntry(title: "Sticky Layout",
                       controllerClass: StickyViewController.self),
+            MenuEntry(title: "Surprise!",
+                      controllerClass: TinderViewController.self),
         ]
     }()
     
