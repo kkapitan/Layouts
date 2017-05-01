@@ -53,6 +53,7 @@
 		026CAA0C1EB650E0004B1AB1 /* StickyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA0B1EB650E0004B1AB1 /* StickyItem.swift */; };
 		026CAA0E1EB650EA004B1AB1 /* StickyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA0D1EB650EA004B1AB1 /* StickyViewController.swift */; };
 		026CAA101EB650F8004B1AB1 /* StickyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA0F1EB650F8004B1AB1 /* StickyLayout.swift */; };
+		026CAA121EB67BEA004B1AB1 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA111EB67BEA004B1AB1 /* StickyHeader.swift */; };
 		340550279246F9D9439B73F2 /* Pods_Layouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		026CAA0B1EB650E0004B1AB1 /* StickyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyItem.swift; sourceTree = "<group>"; };
 		026CAA0D1EB650EA004B1AB1 /* StickyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyViewController.swift; sourceTree = "<group>"; };
 		026CAA0F1EB650F8004B1AB1 /* StickyLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyLayout.swift; sourceTree = "<group>"; };
+		026CAA111EB67BEA004B1AB1 /* StickyHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
 		063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Layouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4DDBA550E56C16ECC94761 /* Pods-Layouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.debug.xcconfig"; sourceTree = "<group>"; };
 		369C4ADE8EC655D25CC949C8 /* Pods-Layouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.release.xcconfig"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				026CAA0B1EB650E0004B1AB1 /* StickyItem.swift */,
 				026CAA0D1EB650EA004B1AB1 /* StickyViewController.swift */,
 				026CAA0F1EB650F8004B1AB1 /* StickyLayout.swift */,
+				026CAA111EB67BEA004B1AB1 /* StickyHeader.swift */,
 			);
 			name = "Sticky Header";
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				024DFF881EABD811007A16B3 /* CarouselItem.swift in Sources */,
 				024DFF991EACBE85007A16B3 /* AlignedItem.swift in Sources */,
 				024DFFB61EAD1266007A16B3 /* ExpandingCell.swift in Sources */,
+				026CAA121EB67BEA004B1AB1 /* StickyHeader.swift in Sources */,
 				024DFF6D1EAB9129007A16B3 /* LayoutBuilder.swift in Sources */,
 				024DFFA61EACD9B2007A16B3 /* StretchingHeaderFlowLayout.swift in Sources */,
 				024DFFA81EACD9E0007A16B3 /* StretchingHeaderItem.swift in Sources */,
