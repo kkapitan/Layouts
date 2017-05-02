@@ -38,8 +38,10 @@ final class TinderCell: UICollectionViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.setTitle("YES", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        let image = UIImage.heart(size: CGSize(width: 40.0, height: 40.0))
+        button.setImage(image, for: .normal)
+        
+        button.alpha = 0.8
         return button
     }()
     
@@ -47,8 +49,10 @@ final class TinderCell: UICollectionViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.setTitle("NO", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        let image = UIImage.cross(size: CGSize(width: 40.0, height: 40.0))
+        button.setImage(image, for: .normal)
+        
+        button.alpha = 0.8
         return button
     }()
     

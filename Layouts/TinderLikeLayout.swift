@@ -13,7 +13,7 @@ protocol TinderLayoutDelegate {
 }
 
 final class TinderLayout: UICollectionViewLayout {
-
+    
     enum Direction: Int {
         case left, right
     }
@@ -135,7 +135,7 @@ final class TinderLayout: UICollectionViewLayout {
             .filter { $0.updateAction == .delete }
             .flatMap { $0.indexPathBeforeUpdate }
     }
-
+    
     fileprivate let offscreenOffset: CGFloat = 300.0
     override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let baseAttributes = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath)
@@ -151,20 +151,23 @@ final class TinderLayout: UICollectionViewLayout {
         baseAttributes?.alpha = 1.0
         return baseAttributes
     }
-//    
-//    override func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-//        let baseAttributes = super.finalLayoutAttributesForDisappearingDecorationElement(ofKind: elementKind, at: decorationIndexPath)
-//        baseAttributes?.alpha = 0.0
-//        baseAttributes?.center = movedOffset
-//        return baseAttributes
-//    }
-//    
-//    override func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-//        let baseAttributes = super.initialLayoutAttributesForAppearingDecorationElement(ofKind: elementKind, at: decorationIndexPath)
-//        baseAttributes?.alpha = 0.0
-//        baseAttributes?.center = movedOffset
-//        return baseAttributes
-//    }
+    
+    override func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let baseAttributes = super.finalLayoutAttributesForDisappearingDecorationElement(ofKind: elementKind, at: decorationIndexPath)
+        baseAttributes?.alpha = 0.0
+        
+        print("Final View \(baseAttributes?.representedElementKind)")
+        return baseAttributes
+    }
+    
+    override func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let baseAttributes = super.initialLayoutAttributesForAppearingDecorationElement(ofKind: elementKind, at: decorationIndexPath)
+        baseAttributes?.alpha = 0.0
+        baseAttributes?.center.x -= 1000
+        
+        print("Initial View \(baseAttributes?.representedElementKind)")
+        return baseAttributes
+    }
     
     override func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let baseAttributes = decorationAttributes
@@ -174,6 +177,7 @@ final class TinderLayout: UICollectionViewLayout {
                 $0.representedElementKind == elementKind
             }.first
         
+        print("Middle View \(baseAttributes?.representedElementKind)")
         return baseAttributes
     }
     
@@ -208,7 +212,6 @@ final class TinderLayout: UICollectionViewLayout {
         }
         
     }
-    
     
     fileprivate var contentSize: CGSize = .zero
     override var collectionViewContentSize: CGSize {
@@ -281,7 +284,129 @@ final class AcceptView: UICollectionReusableView {
         let lineWidth = CGFloat(5.0)
         UIColor.green.withAlphaComponent(0.8).setStroke()
         
-        let frame = CGRect(x: 0, y: 0, width: 150, height: 150).insetBy(dx: lineWidth / 2.0, dy: lineWidth / 2.0)
+        let frame = rect.insetBy(dx: lineWidth / 2.0, dy: lineWidth / 2.0)
+        
+        let path = UIBezierPath.heartIn(frame)
+        path.lineWidth = lineWidth
+        path.stroke()
+        
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height))
+
+        ovalPath.lineWidth = lineWidth
+        ovalPath.stroke()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+final class DeclineView: UICollectionReusableView {
+    static let kind = "DeclineViewKind"
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        backgroundColor = .clear
+    }
+    
+    override func draw(_ rect: CGRect) {
+        let lineWidth = CGFloat(5.0)
+        UIColor.red.withAlphaComponent(0.8).setStroke()
+        
+        let rect = rect.insetBy(dx: lineWidth / 2.0, dy: lineWidth / 2.0)
+        
+        let border = UIBezierPath(ovalIn: rect)
+        border.lineWidth = lineWidth
+        border.stroke()
+        
+        let path = UIBezierPath.crossIn(rect)
+        path.lineWidth = 2*lineWidth
+        path.stroke()
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+extension UIImage {
+    static func heart(size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        
+        let initial = CGRect(origin: .zero, size: size)
+        
+        let lineWidth = CGFloat(2.0)
+        UIColor.green.setStroke()
+        
+        let frame = initial.insetBy(dx: lineWidth / 2.0, dy: lineWidth / 2.0)
+        
+        let path = UIBezierPath.heartIn(frame)
+        path.lineWidth = lineWidth
+        path.stroke()
+        
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height))
+        
+        ovalPath.lineWidth = lineWidth
+        ovalPath.stroke()
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    static func cross(size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        
+        let initial = CGRect(origin: .zero, size: size)
+        
+
+        let lineWidth = CGFloat(2.0)
+        UIColor.red.setStroke()
+        
+        let rect = initial.insetBy(dx: lineWidth / 2.0, dy: lineWidth / 2.0)
+        
+        let border = UIBezierPath(ovalIn: rect)
+        border.lineWidth = lineWidth
+        border.stroke()
+        
+        let path = UIBezierPath.crossIn(rect)
+        path.lineWidth = 2*lineWidth
+        path.stroke()
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
+extension UIBezierPath {
+    
+    static func crossIn(_ rect: CGRect) -> UIBezierPath {
+        
+        let radius = rect.width / 2.0
+        let path = UIBezierPath()
+        
+        for i in [1,3,5,7] {
+            
+            let x = radius * cos(CGFloat(i) * CGFloat.pi/4.0) + rect.midX
+            let y = radius * sin(CGFloat(i) * CGFloat.pi/4.0) + rect.midY
+            
+            path.move(to: CGPoint(x: rect.midX, y: rect.midY))
+            path.addLine(to: CGPoint(x: x, y: y))
+        }
+        
+        return path
+    }
+    
+    static func heartIn(_ rect: CGRect) -> UIBezierPath {
+        
+        
+        let frame = rect
         
         let heartPath = UIBezierPath()
         heartPath.move(to: CGPoint(x: frame.minX + 0.46677 * frame.width, y: frame.minY + 0.91183 * frame.height))
@@ -303,57 +428,9 @@ final class AcceptView: UICollectionReusableView {
         heartPath.addCurve(to: CGPoint(x: frame.minX + 0.46677 * frame.width, y: frame.minY + 0.91183 * frame.height), controlPoint1: CGPoint(x: frame.minX + 0.49352 * frame.width, y: frame.minY + 0.96706 * frame.height), controlPoint2: CGPoint(x: frame.minX + 0.50088 * frame.width, y: frame.minY + 0.95324 * frame.height))
         heartPath.close()
         
-        heartPath.lineWidth = 5
+        
         heartPath.miterLimit = 4
-        heartPath.stroke()
-        
-        let ovalPath = UIBezierPath(ovalIn: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height))
-        
-        ovalPath.lineWidth = 5
-        ovalPath.stroke()
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-final class DeclineView: UICollectionReusableView {
-    static let kind = "DeclineViewKind"
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        backgroundColor = .clear
-    }
-
-    override func draw(_ rect: CGRect) {
-        let lineWidth = CGFloat(5.0)
-        UIColor.red.withAlphaComponent(0.8).setStroke()
-        
-        let rect = rect.insetBy(dx: lineWidth / 2.0, dy: lineWidth / 2.0)
-        
-        let border = UIBezierPath(ovalIn: rect)
-        border.lineWidth = lineWidth
-        border.stroke()
-        
-        let radius = rect.width / 2.0
-        let path = UIBezierPath()
-    
-        for i in [1,3,5,7] {
-        
-            let x = radius * cos(CGFloat(i) * CGFloat.pi/4.0) + rect.midX
-            let y = radius * sin(CGFloat(i) * CGFloat.pi/4.0) + rect.midY
-            
-            path.move(to: CGPoint(x: rect.midX, y: rect.midY))
-            path.addLine(to: CGPoint(x: x, y: y))
-        }
-        
-        path.lineWidth = 2*lineWidth
-        path.stroke()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return heartPath
     }
 }
