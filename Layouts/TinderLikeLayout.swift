@@ -13,7 +13,7 @@ protocol TinderLayoutDelegate {
 }
 
 final class TinderLayout: UICollectionViewLayout {
-    
+
     enum Direction: Int {
         case left, right
     }
@@ -116,7 +116,11 @@ final class TinderLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return [cellAttributes, decorationAttributes].flatMap { $0 }
+        if state.isMoving {
+            return [cellAttributes, decorationAttributes].flatMap { $0 }
+        }
+        
+        return cellAttributes
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
@@ -132,6 +136,7 @@ final class TinderLayout: UICollectionViewLayout {
             .flatMap { $0.indexPathBeforeUpdate }
     }
 
+    fileprivate let offscreenOffset: CGFloat = 300.0
     override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let baseAttributes = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath)
         
@@ -139,9 +144,10 @@ final class TinderLayout: UICollectionViewLayout {
         
         if deletedIndexPaths.contains(itemIndexPath) {
             if case .moved(let direction) = state {
-                baseAttributes?.center.x = direction == .left ? -300.0 : collectionView.bounds.width + 300.0
+                baseAttributes?.center.x = direction == .left ? -offscreenOffset : collectionView.bounds.width + offscreenOffset
             }
         }
+        
         baseAttributes?.alpha = 1.0
         return baseAttributes
     }
@@ -161,12 +167,14 @@ final class TinderLayout: UICollectionViewLayout {
 //    }
     
     override func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return decorationAttributes
+        let baseAttributes = decorationAttributes
             .filter {
                 $0.indexPath == indexPath
             }.filter {
                 $0.representedElementKind == elementKind
             }.first
+        
+        return baseAttributes
     }
     
     fileprivate var state: State = .idle
