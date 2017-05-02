@@ -58,6 +58,9 @@
 		026CAA161EB75FF5004B1AB1 /* TinderLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA151EB75FF5004B1AB1 /* TinderLikeCell.swift */; };
 		026CAA181EB75FFC004B1AB1 /* TinderLikeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA171EB75FFC004B1AB1 /* TinderLikeItem.swift */; };
 		026CAA1A1EB7600F004B1AB1 /* TinderLikeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA191EB7600F004B1AB1 /* TinderLikeLayout.swift */; };
+		026CAA221EB92ABB004B1AB1 /* TinderLikeDecorationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA211EB92ABB004B1AB1 /* TinderLikeDecorationViews.swift */; };
+		026CAA241EB92AE5004B1AB1 /* TinderLikeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA231EB92AE5004B1AB1 /* TinderLikeImages.swift */; };
+		026CAA261EB92B06004B1AB1 /* TinderLikeBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CAA251EB92B06004B1AB1 /* TinderLikeBezier.swift */; };
 		340550279246F9D9439B73F2 /* Pods_Layouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +118,9 @@
 		026CAA151EB75FF5004B1AB1 /* TinderLikeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderLikeCell.swift; sourceTree = "<group>"; };
 		026CAA171EB75FFC004B1AB1 /* TinderLikeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderLikeItem.swift; sourceTree = "<group>"; };
 		026CAA191EB7600F004B1AB1 /* TinderLikeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderLikeLayout.swift; sourceTree = "<group>"; };
+		026CAA211EB92ABB004B1AB1 /* TinderLikeDecorationViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderLikeDecorationViews.swift; sourceTree = "<group>"; };
+		026CAA231EB92AE5004B1AB1 /* TinderLikeImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderLikeImages.swift; sourceTree = "<group>"; };
+		026CAA251EB92B06004B1AB1 /* TinderLikeBezier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TinderLikeBezier.swift; sourceTree = "<group>"; };
 		063FF53B3CC7BB6759908D0D /* Pods_Layouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Layouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4DDBA550E56C16ECC94761 /* Pods-Layouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.debug.xcconfig"; sourceTree = "<group>"; };
 		369C4ADE8EC655D25CC949C8 /* Pods-Layouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layouts.release.xcconfig"; path = "Pods/Target Support Files/Pods-Layouts/Pods-Layouts.release.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +302,9 @@
 				026CAA151EB75FF5004B1AB1 /* TinderLikeCell.swift */,
 				026CAA171EB75FFC004B1AB1 /* TinderLikeItem.swift */,
 				026CAA191EB7600F004B1AB1 /* TinderLikeLayout.swift */,
+				026CAA211EB92ABB004B1AB1 /* TinderLikeDecorationViews.swift */,
+				026CAA231EB92AE5004B1AB1 /* TinderLikeImages.swift */,
+				026CAA251EB92B06004B1AB1 /* TinderLikeBezier.swift */,
 			);
 			name = TinderLike;
 			sourceTree = "<group>";
@@ -470,6 +479,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				026CAA041EB62A48004B1AB1 /* ArcCell.swift in Sources */,
+				026CAA261EB92B06004B1AB1 /* TinderLikeBezier.swift in Sources */,
+				026CAA241EB92AE5004B1AB1 /* TinderLikeImages.swift in Sources */,
 				024DFFAE1EACDD38007A16B3 /* StretchingHeaderView.swift in Sources */,
 				024DFFAC1EACD9F7007A16B3 /* StretchingHeaderController.swift in Sources */,
 				026CA9FE1EB60521004B1AB1 /* CircleViewController.swift in Sources */,
@@ -486,6 +497,7 @@
 				024DFF561EAB8DC9007A16B3 /* AppDelegate.swift in Sources */,
 				024DFFB41EAD1261007A16B3 /* ExpandingItem.swift in Sources */,
 				026CAA0C1EB650E0004B1AB1 /* StickyItem.swift in Sources */,
+				026CAA221EB92ABB004B1AB1 /* TinderLikeDecorationViews.swift in Sources */,
 				024DFF881EABD811007A16B3 /* CarouselItem.swift in Sources */,
 				024DFF991EACBE85007A16B3 /* AlignedItem.swift in Sources */,
 				026CAA141EB75FED004B1AB1 /* TinderLikeViewController.swift in Sources */,
