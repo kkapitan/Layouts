@@ -8,7 +8,32 @@
 
 import UIKit
 
+protocol TinderLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, didMoveItem at: IndexPath, to: TinderLayout.Direction)
+}
+
 final class TinderLayout: UICollectionViewLayout {
+    
+    enum Direction: Int {
+        case left, right
+    }
+    
+    enum State {
+        case moved(Direction)
+        case moving
+        case idle
+        
+        var isMoving: Bool {
+            switch self {
+            case .moving:
+                return true
+            default:
+                return false
+            }
+        }
+    }
+    
+    var delegate: TinderLayoutDelegate?
     
     var cellAttributes: [UICollectionViewLayoutAttributes] = []
     var decorationAttributes: [UICollectionViewLayoutAttributes] = []
@@ -30,12 +55,11 @@ final class TinderLayout: UICollectionViewLayout {
         guard let collectionView = collectionView else { return }
         
         let numberOfItems = collectionView.numberOfItems(inSection: 0)
-        let numberOfVisibleItems = min(numberOfItems, maxVisibleItems)
         
         let centerX = collectionView.bounds.midX
         let centerY = collectionView.bounds.midY
         
-        cellAttributes = (0..<numberOfVisibleItems).map { index in
+        cellAttributes = (0..<numberOfItems).map { index in
             
             let indexPath = IndexPath(item: index, section: 0)
             let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
@@ -43,9 +67,9 @@ final class TinderLayout: UICollectionViewLayout {
             attribute.size = itemSize
             
             let x = centerX
-            let y = centerY - interItemTopOffset * CGFloat(index)
+            let y = centerY - interItemTopOffset * CGFloat(min(index, maxVisibleItems - 1))
             
-            let shouldApplyOffset = indexPath.row == 0 && isMoving
+            let shouldApplyOffset = indexPath.row == 0 && state.isMoving
             
             let offsetX = shouldApplyOffset ? movedOffset.x : x
             let offsetY = shouldApplyOffset ? movedOffset.y : y
@@ -71,7 +95,7 @@ final class TinderLayout: UICollectionViewLayout {
         let declineIndexPath = IndexPath(item: 0, section: 0)
         let declineAttributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: DeclineView.kind, with: declineIndexPath)
         
-        let shouldApplyOffset = isMoving
+        let shouldApplyOffset = state.isMoving
         
         let x = shouldApplyOffset ? movedOffset.x : centerX
         let y = shouldApplyOffset ? movedOffset.y : centerY
@@ -99,6 +123,43 @@ final class TinderLayout: UICollectionViewLayout {
         return cellAttributes[indexPath.row]
     }
     
+    fileprivate var deletedIndexPaths: [IndexPath] = []
+    override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+        super.prepare(forCollectionViewUpdates: updateItems)
+        
+        deletedIndexPaths = updateItems
+            .filter { $0.updateAction == .delete }
+            .flatMap { $0.indexPathBeforeUpdate }
+    }
+
+    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let baseAttributes = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath)
+        
+        guard let collectionView = collectionView else { return baseAttributes }
+        
+        if deletedIndexPaths.contains(itemIndexPath) {
+            if case .moved(let direction) = state {
+                baseAttributes?.center.x = direction == .left ? -300.0 : collectionView.bounds.width + 300.0
+            }
+        }
+        baseAttributes?.alpha = 1.0
+        return baseAttributes
+    }
+//    
+//    override func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        let baseAttributes = super.finalLayoutAttributesForDisappearingDecorationElement(ofKind: elementKind, at: decorationIndexPath)
+//        baseAttributes?.alpha = 0.0
+//        baseAttributes?.center = movedOffset
+//        return baseAttributes
+//    }
+//    
+//    override func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        let baseAttributes = super.initialLayoutAttributesForAppearingDecorationElement(ofKind: elementKind, at: decorationIndexPath)
+//        baseAttributes?.alpha = 0.0
+//        baseAttributes?.center = movedOffset
+//        return baseAttributes
+//    }
+    
     override func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return decorationAttributes
             .filter {
@@ -108,7 +169,7 @@ final class TinderLayout: UICollectionViewLayout {
             }.first
     }
     
-    fileprivate var isMoving: Bool = false
+    fileprivate var state: State = .idle
     fileprivate var movedOffset: CGPoint = .zero
     
     func handlePan(pan: UIPanGestureRecognizer) {
@@ -118,21 +179,24 @@ final class TinderLayout: UICollectionViewLayout {
             
             let point = pan.location(in: collectionView)
             let indexPath = collectionView?.indexPathForItem(at: point)
-            isMoving = indexPath?.row == 0
+            state = indexPath?.row == 0 ? .moving : .idle
             
             fallthrough
         case .changed:
-            guard isMoving else { return }
+            guard state.isMoving else { return }
             
             movedOffset = pan.location(in: collectionView)
             invalidateLayout()
             
         default:
-            if isMoving {
-                invalidateLayout()
-            }
+            guard state.isMoving else { return }
             
-            isMoving = false
+            state = .idle
+            notifyIfNeeded()
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                self.invalidateLayout()
+            })
         }
         
     }
@@ -144,7 +208,7 @@ final class TinderLayout: UICollectionViewLayout {
     }
     
     fileprivate var needsSetup: Bool = true
-    func setupIfNeeded() {
+    fileprivate func setupIfNeeded() {
         guard needsSetup else { return }
         
         guard let collectionView = collectionView else { return }
@@ -162,7 +226,27 @@ final class TinderLayout: UICollectionViewLayout {
         needsSetup = false
     }
     
-    func registerDecorationView() {
+    fileprivate func notifyIfNeeded() {
+        guard let collectionView = collectionView else { return }
+        
+        let threshold: CGFloat = 50.0
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        let offsetX = movedOffset.x
+        
+        if offsetX > collectionView.bounds.width - threshold {
+            print("Moved right!")
+            state = .moved(.right)
+            delegate?.collectionView(collectionView, didMoveItem: indexPath, to: .right)
+            
+        } else if offsetX < threshold {
+            print("Moved left!")
+            state = .moved(.left)
+            delegate?.collectionView(collectionView, didMoveItem: indexPath, to: .left)
+        }
+    }
+    
+    fileprivate func registerDecorationView() {
         register(AcceptView.self, forDecorationViewOfKind: AcceptView.kind)
         register(DeclineView.self, forDecorationViewOfKind: DeclineView.kind)
     }

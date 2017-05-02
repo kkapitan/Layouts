@@ -39,6 +39,8 @@ final class TinderViewController: UIViewController, UICollectionViewDataSource {
         collectionView.dataSource = self
         collectionView.backgroundColor = .alzarin
         
+        collectionViewLayout.delegate = self
+        
         view.addSubview(collectionView)
         LayoutBuilder().pin(collectionView, to: view)
     }
@@ -59,5 +61,12 @@ final class TinderViewController: UIViewController, UICollectionViewDataSource {
         cell.pictureImageView.kf.setImage(with: resource)
         
         return cell
+    }
+}
+
+extension TinderViewController: TinderLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, didMoveItem at: IndexPath, to: TinderLayout.Direction) {
+        items.remove(at: at.row)
+        collectionView.deleteItems(at: [at])
     }
 }
