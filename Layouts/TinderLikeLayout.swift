@@ -100,6 +100,8 @@ final class TinderLayout: UICollectionViewLayout {
         let x = shouldApplyOffset ? movedOffset.x : centerX
         let y = shouldApplyOffset ? movedOffset.y : centerY
         
+        acceptAttributes.isHidden = !state.isMoving
+        
         acceptAttributes.center = CGPoint(x: x, y: y)
         declineAttributes.center = CGPoint(x: x, y: y)
         
@@ -111,7 +113,7 @@ final class TinderLayout: UICollectionViewLayout {
         
         acceptAttributes.size = size
         declineAttributes.size = size
-        
+        print("Setup View \(acceptAttributes.representedElementKind)")
         decorationAttributes = [acceptAttributes, declineAttributes]
     }
     
@@ -152,33 +154,32 @@ final class TinderLayout: UICollectionViewLayout {
         return baseAttributes
     }
     
+    
     override func finalLayoutAttributesForDisappearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let baseAttributes = super.finalLayoutAttributesForDisappearingDecorationElement(ofKind: elementKind, at: decorationIndexPath)
-        baseAttributes?.alpha = 0.0
+        let baseAttributes = decorationAttributes
+            .filter {
+                $0.indexPath == decorationIndexPath
+            }.filter {
+                $0.representedElementKind == elementKind
+            }.first
         
-        print("Final View \(baseAttributes?.representedElementKind)")
+        guard let collectionView = collectionView else { return baseAttributes }
+        
+        if case .moved(let direction) = state {
+            baseAttributes?.center.x = direction == .left ? -offscreenOffset : collectionView.bounds.width + offscreenOffset
+        }
+
         return baseAttributes
     }
     
-    override func initialLayoutAttributesForAppearingDecorationElement(ofKind elementKind: String, at decorationIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let baseAttributes = super.initialLayoutAttributesForAppearingDecorationElement(ofKind: elementKind, at: decorationIndexPath)
-        baseAttributes?.alpha = 0.0
-        baseAttributes?.center.x -= 1000
-        
-        print("Initial View \(baseAttributes?.representedElementKind)")
-        return baseAttributes
-    }
     
     override func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let baseAttributes = decorationAttributes
+        return decorationAttributes
             .filter {
                 $0.indexPath == indexPath
             }.filter {
                 $0.representedElementKind == elementKind
             }.first
-        
-        print("Middle View \(baseAttributes?.representedElementKind)")
-        return baseAttributes
     }
     
     fileprivate var state: State = .idle
@@ -321,7 +322,7 @@ final class DeclineView: UICollectionReusableView {
         border.stroke()
         
         let path = UIBezierPath.crossIn(rect)
-        path.lineWidth = 2*lineWidth
+        path.lineWidth = 2 * lineWidth
         path.stroke()
         
     }
