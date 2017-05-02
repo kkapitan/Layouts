@@ -11,13 +11,10 @@ import Foundation
 struct TinderItem {
     
     let title: String
-    let description: String
     let imageURL: URL
     
-    init(title: String, description: String, imageURL: URL) {
+    init(title: String, imageURL: URL) {
         self.title = title
-        self.description = description
-        
         self.imageURL = URL(string: "https://unsplash.it/200/200/?random")!
     }
 }
@@ -29,7 +26,6 @@ extension TinderItem {
         let url = URL(string: "https://randomuser.me/api/portraits/women/\(random).jpg")!
         
         return TinderItem(title: "Jane Doe",
-                          description: LoremIpsum.random(),
                           imageURL: url)
     }
 }

@@ -24,14 +24,6 @@ final class TinderCell: UICollectionViewCell {
         return label
     }()
     
-    let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        label.font = UIFont(name: "American Typewriter", size: 14.0)
-        return label
-    }()
-    
     let pictureImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,9 +34,28 @@ final class TinderCell: UICollectionViewCell {
         return imageView
     }()
     
+    let acceptButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.setTitle("YES", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
+    let declineButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.setTitle("NO", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+    
         return view
     }()
 
@@ -53,8 +64,9 @@ final class TinderCell: UICollectionViewCell {
         
         let views: [IdentifiableView] = [
             ("nameLabel", nameLabel),
-            ("descriptionLabel", descriptionLabel),
             ("imageView", pictureImageView),
+            ("acceptButton", acceptButton),
+            ("declineButton", declineButton),
         ]
         
         addSubview(containerView)
@@ -64,11 +76,18 @@ final class TinderCell: UICollectionViewCell {
         
         layout.pin(containerView, to: self)
         
-        layout.with(format: "V:|-10-[imageView]-10-[nameLabel]-10-[descriptionLabel]-10-|",
+        layout.with(format: "V:|-10-[imageView]-10-[nameLabel]",
                     options: [.alignAllLeading, .alignAllTrailing])
             .activate()
         
+        layout.with(format: "V:[nameLabel]-10-[acceptButton]-10-|")
+            .activate()
+        
         layout.with(format: "H:|-10-[imageView]-10-|")
+            .activate()
+        
+        layout.with(format: "H:|-0-[declineButton(==acceptButton)]-0-[acceptButton]-0-|",
+                    options: .alignAllCenterY)
             .activate()
         
         backgroundColor = .white

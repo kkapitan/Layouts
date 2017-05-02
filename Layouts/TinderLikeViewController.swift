@@ -57,10 +57,20 @@ final class TinderViewController: UIViewController, UICollectionViewDataSource {
         let resource = ImageResource(downloadURL: item.imageURL, cacheKey: "Cell-\(indexPath.row)-\(indexPath.section)")
         
         cell.nameLabel.text = item.title
-        cell.descriptionLabel.text = item.description
         cell.pictureImageView.kf.setImage(with: resource)
         
+        cell.acceptButton.addTarget(self, action: #selector(acceptAction), for: .touchUpInside)
+        cell.declineButton.addTarget(self, action: #selector(declineAction), for: .touchUpInside)
+        
         return cell
+    }
+    
+    func acceptAction() {
+        collectionViewLayout.move(.right)
+    }
+    
+    func declineAction() {
+        collectionViewLayout.move(.left)
     }
 }
 
