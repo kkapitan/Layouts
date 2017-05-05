@@ -29,11 +29,6 @@ final class FixedVerticalCarouselFlowLayout: UICollectionViewFlowLayout {
         return modify(attributes)
     }
     
-    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        guard let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath) else { return nil }
-        return modify(attributes)
-    }
-    
     private func modify(_ attributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         guard let collectionView = collectionView else { return attributes }
         

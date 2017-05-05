@@ -20,6 +20,7 @@ final class ArcLayout: UICollectionViewLayout {
     var attributes: [ArcAttributes] = []
     
     var angleOffset: CGFloat {
+        
         guard let collectionView = collectionView else { return 0.0 }
         
         let offsetX = collectionView.contentOffset.x

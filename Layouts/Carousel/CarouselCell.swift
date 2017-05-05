@@ -48,7 +48,7 @@ final class CarouselCell: UICollectionViewCell {
     }()
     
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         
         let views: [IdentifiableView] = [
             ("imageView", imageView),

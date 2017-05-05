@@ -11,7 +11,7 @@ import Foundation
 struct LoremIpsum {
     
     fileprivate static let container: [String] = {
-        return "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire".components(separatedBy: " ")
+        return "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire".components(separatedBy: " ")
     }()
     
     fileprivate static var maxLength: Int {
@@ -24,8 +24,8 @@ struct LoremIpsum {
         return container.dropLast(maxLength - actualLength).joined(separator: " ")
     }
     
-    static func random() -> String {
-        let random = 1 + Int(arc4random()) % maxLength
+    static func random(length: Int = 20) -> String {
+        let random = 1 + Int(arc4random()) % length
         return generate(length: random)
     }
 }
